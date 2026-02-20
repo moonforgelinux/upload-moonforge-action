@@ -1,0 +1,45 @@
+name: 'upload-moonforge-action'
+description: "Upload moonforge images to s3-compatible storage"
+
+inputs:
+  access_key:
+    description: 'Access key for S3-compatible storage'
+    required: true
+  secret_key:
+    description: 'Secret key for S3-compatible storage'
+    required: true
+  host_base:
+    description: 'HOSTNAME:PORT to S3-compatible storage'
+    required: true
+  bucket:
+    description: 'Bucket name from S3-compatible storage'
+    required: true
+  source:
+    description: 'Path to the source directory or file'
+    required: true
+  destination:
+    description: 'Path to the destination directory or file'
+    required: true
+  use_https:
+    description: 'Use HTTPS connection to S3-compatible storage'
+    default: true
+  exclude:
+    description: 'Exclude files with this glob pattern (e.g., *.bin)'
+    default: ''
+  include:
+    description: 'Include files with this glob pattern (e.g., *.wic.bz2)'
+    default: ''
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - "${{ inputs.access_key }}"
+    - "${{ inputs.secret_key }}"
+    - "${{ inputs.host_base }}"
+    - "${{ inputs.use_https }}"
+    - "${{ inputs.bucket }}"
+    - "${{ inputs.source }}"
+    - "${{ inputs.destination }}"
+    - "${{ inputs.exclude }}"
+    - "${{ inputs.include }}"
