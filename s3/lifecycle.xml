@@ -1,0 +1,32 @@
+<LifecycleConfiguration>
+  <Rule>
+    <ID>my-bucket-delete-pull-request</ID>
+    <Expiration>
+      <Days>7</Days>
+    </Expiration>
+    <Filter>
+      <Prefix>my/prefix/to/pr/artifacts/</Prefix>
+    </Filter>
+    <Status>Enabled</Status>
+  </Rule>
+  <Rule>
+    <ID>my-bucket-delete-push</ID>
+    <Expiration>
+      <Days>1</Days>
+    </Expiration>
+    <Filter>
+      <Prefix>my/prefix/to/push/artifacts/</Prefix>
+    </Filter>
+    <Status>Enabled</Status>
+  </Rule>
+  <Rule>
+    <ID>my-bucket-delete-incomplete</ID>
+    <AbortIncompleteMultipartUpload>
+      <DaysAfterInitiation>7</DaysAfterInitiation>
+    </AbortIncompleteMultipartUpload>
+    <Filter>
+      <Prefix></Prefix>
+    </Filter>
+    <Status>Enabled</Status>
+  </Rule>
+</LifecycleConfiguration>
