@@ -18,7 +18,7 @@ jobs:
           secret_key: ${{ secrets.S3_SECRET_KEY }}
           bucket: ${{ secrets.S3_BUCKET }}
           source: build/tmp/deploy/images
-          destination: '/builds/${{ github.run_id }}/'
+          destination: 'builds/${{ github.run_id }}/'
           exclude: '*'
           include: '*.wic.bz2'
           use_https: false
@@ -37,6 +37,9 @@ jobs:
 | use_https   | Use HTTPS connection to S3-compatible storage          | No        | true
 | exclude     | Exclude files with this glob pattern (e.g., *.bin)     | No        | ''
 | include     | Include files with this glob pattern (e.g., *.wic.bz2) | No        | ''
+
+> [!NOTE]
+> The behavior of the *destination* input can differ slightly between s3-compatible services.
 
 ## Legal
 
