@@ -21,7 +21,7 @@ jobs:
           destination: 'builds/${{ github.run_id }}/'
           exclude: '*'
           include: '*.wic.bz2'
-          use_https: false
+          use_https: true
 ```
 
 ## Inputs
