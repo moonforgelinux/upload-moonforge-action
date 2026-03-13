@@ -33,9 +33,10 @@ inputs:
 runs:
   using: docker
   image: Dockerfile
+  env:
+    AWS_ACCESS_KEY_ID: ${{ inputs.access_key }}
+    AWS_SECRET_ACCESS_KEY: ${{ inputs.secret_key }}
   args:
-    - "${{ inputs.access_key }}"
-    - "${{ inputs.secret_key }}"
     - "${{ inputs.host_base }}"
     - "${{ inputs.use_https }}"
     - "${{ inputs.bucket }}"

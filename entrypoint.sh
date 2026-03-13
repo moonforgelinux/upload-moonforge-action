@@ -1,19 +1,15 @@
 #!/bin/sh
 
-ACCESS_KEY="$1"
-SECRET_KEY="$2"
-HOST_BASE="$3"
-USE_HTTPS="$4"
-BUCKET="$5"
-SOURCE="$6"
-DESTINATION="$7"
-EXCLUDE="$8"
-INCLUDE="$9"
+HOST_BASE="$1"
+USE_HTTPS="$2"
+BUCKET="$3"
+SOURCE="$4"
+DESTINATION="$5"
+EXCLUDE="$6"
+INCLUDE="$7"
 
 cat > ~/.s3cfg <<EOF
 [default]
-access_key = ${ACCESS_KEY}
-secret_key = ${SECRET_KEY}
 host_base = ${HOST_BASE}
 host_bucket = ${HOST_BASE}
 use_https = ${USE_HTTPS}
