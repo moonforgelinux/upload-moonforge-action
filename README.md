@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - uses: moonforgelinux/upload-moonforge-action@v0.1.0
+      - uses: moonforgelinux/upload-moonforge-action@v0.2.0
         with:
           host_base: ${{ secrets.S3_HOST_BASE }}
           access_key: ${{ secrets.S3_ACCESS_KEY }}
